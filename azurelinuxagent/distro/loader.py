@@ -20,6 +20,7 @@ from azurelinuxagent.utils.textutil import Version
 from azurelinuxagent.metadata import DISTRO_NAME, DISTRO_VERSION, \
                                      DISTRO_FULL_NAME
 from azurelinuxagent.distro.default.distro import DefaultDistro
+from azurelinuxagent.distro.alpine.distro import AlpineDistro
 from azurelinuxagent.distro.ubuntu.distro import UbuntuDistro, \
                                                  Ubuntu14Distro, \
                                                  Ubuntu12Distro, \
@@ -42,6 +43,8 @@ def get_distro(distro_name=DISTRO_NAME, distro_version=DISTRO_VERSION,
             return UbuntuSnappyDistro()
         else:
             return UbuntuDistro()
+    if distro_name == "alpine":
+        return AlpineDistro()
     if distro_name == "coreos":
         return CoreOSDistro()
     if distro_name == "suse":
