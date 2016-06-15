@@ -26,10 +26,11 @@ RUN rm /etc/*version
 RUN rm /etc/*release
 
 COPY azurelinuxagent/distro/alpine/lsb-release /etc/lsb-release
-COPY config/docker/waagent.conf /etc/waagent.conf
+COPY config/docker/waagent.conf /opt/waagent.conf
 COPY bin/* /usr/sbin/
+COPY /entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /usr/sbin/waagent && \
     ln -sf /dev/stdout /var/log/waagent.log
 
-ENTRYPOINT ["/usr/sbin/waagent"]
+ENTRYPOINT ["/entrypoint.sh"]
