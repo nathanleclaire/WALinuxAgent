@@ -11,7 +11,7 @@ RUN apt-get update && \
         net-tools \
         ifupdown \
         python \
-        util-linux \
+        eject \
         python-pyasn1 \
         python-setuptools \
         python-rpm
