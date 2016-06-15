@@ -25,7 +25,7 @@ RUN python setup.py install
 RUN rm /etc/*version
 RUN rm /etc/*release
 
-COPY azurelinuxagent/distro/alpine/lsb-release /etc/lsb-release
+COPY azurelinuxagent/distro/alpine/lsb-release /opt/lsb-release
 COPY config/docker/waagent.conf /opt/waagent.conf
 COPY bin/* /usr/sbin/
 COPY /entrypoint.sh /entrypoint.sh
