@@ -3,6 +3,10 @@
 cp /opt/waagent.conf /etc/waagent.conf
 cp /opt/lsb-release /etc/lsb-release
 
+# Workaround due to 'gawk' name
+rm /usr/bin/awk
+ln -s /usr/bin/gawk /usr/bin/awk
+
 echo '
 CHFN_RESTRICT    rwh
 DEFAULT_HOME     yes
